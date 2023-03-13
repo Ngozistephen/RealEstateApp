@@ -1,7 +1,14 @@
 import './bootstrap';
 
-import Alpine from 'alpinejs';
+import {createApp} from 'vue'
+import HomePage from './components/HomePage.vue';
 
-window.Alpine = Alpine;
 
-Alpine.start();
+
+// Working now
+const app = createApp({})
+app.component('home-page', HomePage)
+app.mount('#app')
+
+
+
