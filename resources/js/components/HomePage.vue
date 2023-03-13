@@ -794,3 +794,127 @@
      }
 
 </script>
+
+<style>
+    #homepage-one > * {
+    margin-bottom: 65px;
+    }
+
+    #homepage-one .with-bg {
+    margin-bottom: 0;
+    }
+
+    #homepage-one .ps-top-banners {
+    margin-top: 40px;
+    }
+
+    #homepage-one .ps-home-search {
+    margin-bottom: 0;
+    }
+
+    #homepage-one .ps-site-stats {
+    padding-top: 65px;
+    }
+
+    #homepage-one .ps-property-types {
+    margin-bottom: 0px;
+    }
+
+    #homepage-one .ps-project-listing {
+    margin-bottom: 30px;
+    }
+
+    @media screen and (min-width: 1024px) {
+    #homepage-one > * {
+        margin-bottom: 90px;
+    }
+    #homepage-one .ps-home-search {
+        padding-top: 150px;
+    }
+    #homepage-one .ps-site-stats {
+        position: relative;
+        z-index: 999;
+        top: -80px;
+        margin-bottom: -80px;
+        padding-top: 90px;
+        padding-bottom: 90px;
+        border-radius: 50px 50px 0 0;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #homepage-one .ps-property-types {
+        margin-bottom: 30px;
+    }
+    #homepage-one .ps-highlight-posts, #homepage-one .ps-project-listing {
+        margin-bottom: 60px;
+    }
+    }
+
+    @media screen and (min-width: 1366px) {
+    #homepage-one > * {
+        margin-bottom: 130px;
+    }
+    #homepage-one .ps-site-stats {
+        padding-top: 130px;
+        padding-bottom: 130px;
+    }
+    #homepage-one .ps-property-types {
+        margin-bottom: 70px;
+    }
+    #homepage-one .ps-highlight-posts, #homepage-one .ps-project-listing {
+        margin-bottom: 100px;
+    }
+    }
+
+.ps-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 320px;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 10001;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 60px 1fr;
+  grid-row-gap: 10px;
+  background-color: #fff;
+  transform: translateX(100%);
+  padding: 0 16px;
+  border-left: 1px solid #eaeaea;
+  transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1) 0s;
+}
+
+.ps-drawer .ps-drawer__close {
+  color: var(--color-text);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ps-drawer .ps-drawer__close i {
+  font-size: 20px;
+}
+
+.ps-drawer .ps-drawer__heading {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.ps-drawer .ps-drawer__top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.ps-drawer.active {
+  transform: translateX(0);
+}
+</style>

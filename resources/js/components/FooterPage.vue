@@ -75,3 +75,118 @@
         </footer>
     </main>
 </template>
+
+
+
+<style>
+    .ps-footer .ps-widget--footer {
+  margin-bottom: 30px;
+}
+
+.ps-footer .ps-widget--footer .ps-social-links a:hover {
+  text-decoration: none;
+}
+
+.ps-footer__copyright {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ps-footer__copyright p {
+  margin-bottom: 0;
+  color: #fff;
+  line-height: 1em;
+}
+
+@media screen and (max-width: 1024px) {
+  .ps-footer {
+    margin-bottom: 60px;
+  }
+}
+
+.ps-footer--default {
+  background-color: var(--color-bg-primary);
+}
+
+.ps-footer--default .ps-footer__copyright {
+  padding-bottom: 60px;
+  padding-top: 32px;
+}
+
+.ps-footer--default .ps-footer__top {
+  display: grid;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
+.ps-footer--default.light {
+  background-color: #fff;
+}
+
+.ps-footer--default.light .ps-widget--footer p {
+  color: var(--color-heading);
+}
+
+.ps-footer--default.light .ps-widget--footer .ps-social-links a {
+  color: var(--color-heading);
+}
+
+.ps-footer--default.light .ps-widget--footer .ps-widget__links li a {
+  color: var(--color-heading);
+}
+
+.ps-footer--default.light .ps-widget--footer .ps-widget__links li a:hover {
+  color: var(--color-text);
+}
+
+.ps-footer--default.light .ps-footer__copyright p {
+  color: var(--color-heading);
+}
+
+.ps-footer--default.light .ps-footer__bottom {
+  border-top: 1px solid rgba(6, 5, 5, 0.1);
+}
+
+.ps-footer--default.light .ps-form--widget-subscribe .ps-form__bottom p {
+  color: var(--color-text);
+}
+
+.ps-footer--default.light .ps-form--widget-subscribe .ps-form__bottom p a {
+  color: var(--color-heading);
+}
+
+.ps-footer--default.light .ps-form--widget-subscribe .ps-form__bottom p a:hover {
+  color: var(--color-1st);
+}
+
+@media screen and (min-width: 768px) {
+  .ps-footer--default .ps-widget-footer-contact {
+    max-width: 255px;
+  }
+  .ps-footer--default .ps-footer__widgets {
+    display: grid;
+    grid-template-columns: 4fr 3fr 3fr;
+  }
+}
+
+@media screen and (min-width: 1040px) {
+  .ps-footer--default .ps-footer__top {
+    grid-template-columns: 7fr 3fr;
+    grid-gap: 30px;
+    padding-top: 120px;
+    padding-bottom: 70px;
+  }
+  .ps-footer--default .ps-footer__copyright {
+    padding-top: 65px;
+    padding-bottom: 122px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .ps-footer--default .ps-footer__top {
+    padding-top: 160px;
+    padding-bottom: 100px;
+  }
+}
+
+</style>
