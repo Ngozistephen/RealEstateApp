@@ -19,7 +19,7 @@
                 <div class="header__left">
                     <div class="header__logo">
                         <router-link class="ps-logo light" :to="{name:'HomePage' }"><img src="img/logo-white.png" alt="" /></router-link>
-                        <!-- <a class="ps-logo" href="index.html"><img src="img/logo.png" alt="" /></a> -->
+                        <router-link class="ps-logo" :to="{name:'HomePage' }"><img src="img/logo.png" alt="" /></router-link>
                     </div>
                     <!-- <div class="header__logo"><a class="ps-logo light" href="index.html"><img src="img/logo-white.png" alt="" /></a><a class="ps-logo" href="index.html"><img src="img/logo.png" alt="" /></a>
                     </div> -->

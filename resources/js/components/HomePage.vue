@@ -404,7 +404,7 @@
             </div>
         </div>
     </div>
-    <footer-page></footer-page>
+    
     <navigation-page></navigation-page> 
     <div class="ps-drawer" id="drawer-menu">
         <div class="ps-drawer__top">
@@ -776,7 +776,7 @@
     </div>
     <div class="ps-site-overlay"></div>
    
-   
+    <footer-page></footer-page>
 </template>
 
 <script>
