@@ -9058,34 +9058,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   }
 }
 
-#agents .ps-agents {
-  padding-bottom: var(--section-padding-bottom);
-}
 
-#agents .ps-page__header .ps-form--agent-search {
-  margin-bottom: 50px;
-}
-
-#agents .ps-agent-information {
-  padding-bottom: var(--section-padding-bottom);
-}
-
-#agents .ps-agent-properties {
-  margin-bottom: 50px;
-}
-
-#agents .ps-layout--with-sidebar {
-  padding-bottom: var(--section-padding-bottom);
-}
-
-@media screen and (min-width: 1024px) {
-  #agents .ps-page__header .ps-form--agent-search {
-    margin-bottom: 70px;
-  }
-  #agents .ps-agent-properties {
-    margin-bottom: 80px;
-  }
-}
 
 .sub-toggle {
   position: relative;

@@ -30,8 +30,10 @@
                         </li> -->
                         <li class="menu-item-has-children"><a href="blog-grid.html">Blog</a><span class="sub-toggle"></span>
                         </li>
-                        <li><a href="agents.html">Agents</a>
-                        </li>
+                        <!-- <li><a href="agents.html">Agents</a>
+                        </li> -->
+                        <router-link class="menu-item-has-children has-mega-menu" :to="{name:'Agents.index' }"><a href="">Agents</a><span class="sub-toggle"></span> 
+                        </router-link>
                         <li><a href="profile.html">My Account</a>
                         </li>
                     </ul>
