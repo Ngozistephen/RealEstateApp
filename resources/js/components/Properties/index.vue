@@ -150,45 +150,9 @@
                             <h4 class="ps-widget__heading">Location</h4>
                             <div class="ps-widget__content">
                                 <div class="ps-widget__attributes">
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="location-0" name="location" />
-                                        <label for="location-0">Los Angeles<span>151</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="location-1" name="location" />
-                                        <label for="location-1">California<span>262</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="location-2" name="location" />
-                                        <label for="location-2">Miami<span>99</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="location-3" name="location" />
-                                        <label for="location-3">San Jose<span>315</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="location-4" name="location" />
-                                        <label for="location-4">Wasington<span>923</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="location-5" name="location" />
-                                        <label for="location-5">New York<span>105</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="location-6" name="location" />
-                                        <label for="location-6">Mahattan<span>21</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="location-7" name="location" />
-                                        <label for="location-7">Capri<span>11</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="location-8" name="location" />
-                                        <label for="location-8">Metropolis<span>9</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="location-9" name="location" />
-                                        <label for="location-9">Oakland<span>2</span></label>
+                                    <div v-for="location in locations"  class="ps-checkbox">
+                                        <input class="form-control" type="checkbox" id="{{ location.id }}" name="location" />
+                                        <label for="{{ location.id }}">{{ location.name }}<span>151</span></label>
                                     </div>
                                 </div>
                             </div>
@@ -649,8 +613,18 @@
     import NavigationPage from '../NavigationPage.vue';
     import FooterPage from '../FooterPage.vue';
 
-    export default{
+    import useLocations from '../../composables/locations.js';
+    import { onMounted } from 'vue';
 
+    export default{ 
+        setup () {
+
+            const { locations, getLocations } = useLocations()
+
+            onMounted( getLocations)
+
+            return { locations }
+        },
 
         components: {
             NavigationPage,
