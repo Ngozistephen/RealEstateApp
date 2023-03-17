@@ -21,54 +21,11 @@
                             <h4 class="ps-widget__heading">Property Types</h4>
                             <div class="ps-widget__content">
                                 <div class="ps-widget__attributes">
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="type-0" name="type" />
-                                        <label for="type-0">The Grounds<span>628</span></label>
+                                    <div  v-for="property_type in property_types" class="ps-checkbox">
+                                        <input class="form-control" type="checkbox" id="{{ property_type.id }}" name="type" />
+                                        <label for="{{ property_type.id }}">{{ property_type.name }}<span>628</span></label>
                                     </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="type-1" name="type" />
-                                        <label for="type-1">Private Houses<span>1250</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="type-2" name="type" />
-                                        <label for="type-2">Apartments<span>950</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="type-3" name="type" />
-                                        <label for="type-3">Detached Villas<span>95</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="type-4" name="type" />
-                                        <label for="type-4">Duplex Villas<span>175</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="type-5" name="type" />
-                                        <label for="type-5">Townhouses<span>2539</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="type-6" name="type" />
-                                        <label for="type-6">Warehouses<span>205</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="type-7" name="type" />
-                                        <label for="type-7">Shophouses<span>129</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="type-8" name="type" />
-                                        <label for="type-8">Farms<span>92</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="type-9" name="type" />
-                                        <label for="type-9">Motels<span>119</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="type-10" name="type" />
-                                        <label for="type-10">Hotels &amp; Resorts<span>998</span></label>
-                                    </div>
-                                    <div class="ps-checkbox">
-                                        <input class="form-control" type="checkbox" id="type-11" name="type" />
-                                        <label for="type-11">Office<span>184</span></label>
-                                    </div>
+                                 
                                 </div>
                             </div>
                         </aside>
@@ -115,7 +72,7 @@
                                 </div>
                             </div>
                         </aside>
-                        <aside class="ps-widget ps-widget--project">
+                        <!-- <aside class="ps-widget ps-widget--project">
                             <h4 class="ps-widget__heading">Land Area</h4>
                             <div class="ps-widget__content">
                                 <div class="ps-widget__attributes">
@@ -145,7 +102,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </aside>
+                        </aside> -->
                         <aside class="ps-widget ps-widget--project">
                             <h4 class="ps-widget__heading">Location</h4>
                             <div class="ps-widget__content">
@@ -614,16 +571,21 @@
     import FooterPage from '../FooterPage.vue';
 
     import useLocations from '../../composables/locations.js';
+    import useProperty_types from '../../composables/property_types.js';
     import { onMounted } from 'vue';
 
     export default{ 
         setup () {
 
             const { locations, getLocations } = useLocations()
+            const { property_types , getProperty_types } = useProperty_types()
 
-            onMounted( getLocations)
+            onMounted( () => {
+                getLocations()
+                getProperty_types() 
+            })
 
-            return { locations }
+            return { locations, property_types }
         },
 
         components: {
