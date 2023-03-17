@@ -8,8 +8,16 @@ import PropertiesIndex from './components/Properties/index.vue'
 import App from './Layouts/App.vue'
 
 const routes = [
-    { path: '/', component: HomePage, name: 'HomePage' },
-    { path: '/properties', component: PropertiesIndex, name: 'Properties.index' }
+    {
+         path: '/', 
+         component: HomePage, 
+         name: 'HomePage' 
+    },
+    { 
+        path: '/properties', 
+        component: PropertiesIndex, 
+        name: 'Properties.index' 
+    }
 ]
 
 const router = createRouter({
