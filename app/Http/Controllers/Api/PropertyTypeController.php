@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Http\Resources\LocationResource;
-use App\Models\Location;
+use App\Models\PropertyType;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\PropertyTypeResource;
 
-class LocationController extends Controller
+class PropertyTypeController extends Controller
 {
-    public function index(){
-        
-        return LocationResource::collection(Location::all());
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return PropertyTypeResource::collection(PropertyType::all());
     }
 
-     /**
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
