@@ -60,7 +60,7 @@
                                     <div class="ps-block__thumbnail">
                                         <div class="ps-block__image"><img src="img/agents/1.jpg" alt="" /></div><a class="ps-block__overlay" href="agent-detail.html"><span>TR</span></a>
                                     </div>
-                                    <div class="ps-block__content"><a class="ps-block__name" href="agent-detail.html">{{agent.first_name }} {{ agent.lastname }}</a>
+                                    <div class="ps-block__content"><a class="ps-block__name" href="agent-detail.html">{{agent.first_name }}{{ agent.lastname }}</a>
                                         <p class="ps-block__position">Compan agent at<a href="#">Finderland JSC</a></p>
                                         <div class="ps-block__meta">
                                             <p><a href="#"> <span class="__cf_email__" data-cfemail="b3c7dcd1d1caf3d5daddd7d6c1dfd2ddd79dd0dcde">[email&#160;protected]</span></a><br/>{{ agent.phone_number }}</p>

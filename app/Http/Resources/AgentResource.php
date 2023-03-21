@@ -20,7 +20,7 @@ class AgentResource extends JsonResource
             'last_name' => $this->last_name,
             'birthday'=> $this->birthday,
             'email' => $this->email,
-            'description' =>$this->description,
+            'description' => substr( $this-> description, 0, 50) . '...',
             'gender' =>$this->gender,
             'address' =>$this->address,
             'status' =>$this->status,
@@ -29,6 +29,7 @@ class AgentResource extends JsonResource
             'facebook' =>$this->facebook,
             'linkedin' =>$this->linkedin,
             'instagram' =>$this->instagram,
+            'created_at' => $this->created_at->toDateString()
         ];
     }
 }
