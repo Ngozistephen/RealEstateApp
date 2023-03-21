@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\AgentSeeder;
 use Database\Seeders\LocationSeeder;
 use Database\Seeders\PropertyTypeSeeder;
 
@@ -22,7 +23,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call(LocationSeeder::class);
-        $this->call(PropertyTypeSeeder::class);
+        
+        $this->call([ 
+            LocationSeeder::class,
+            PropertyTypeSeeder::class,
+            AgentSeeder::class,
+            
+        ]);
     }
 }
