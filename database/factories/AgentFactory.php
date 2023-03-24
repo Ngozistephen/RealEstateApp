@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Agent;
+use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -19,6 +20,8 @@ class AgentFactory extends Factory
      */
     public function definition()
     {
+        $categoryIDs = Category::pluck('id');
+
         return [
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
@@ -34,6 +37,7 @@ class AgentFactory extends Factory
             'linkedin' =>  $this->faker->url(),
             'instagram' =>  $this->faker->url(),
             'status' => Arr::random(Agent::STATUS),
+            'category_id' => $categoryIDs->random()
         ];
     }
 }

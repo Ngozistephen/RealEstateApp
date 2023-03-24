@@ -9,6 +9,12 @@
                                 <input class="form-control" type="text" placeholder=" " />
                                 <label>Enter agent name...</label>
                             </div>
+                            <!-- <select v-model="search_agent" class="ps-form underline">
+                                <option value="" selected>-- Enter agent name..--</option>
+                                <option v-for="agent in agents" :value="agent.id">
+                                    {{ agent.full_name }}
+                                </option>
+                            </select> -->
                         </div>
                         <div class="col-md-7">
                             <div class="row">
@@ -23,10 +29,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="ps-form select underline">
-                                        <select class="form-control">
-                                            <option>All Categories</option>
-                                            <option>For Rent</option>
-                                            <option>For Sell</option>
+                                        <select v-model="search_category" class="form-control">
+                                            <option value=""  selected>All Categories</option>
+                                            <option v-for="category in categories" :value="category.id">
+                                                {{ category.name }}
+                                             </option>
                                         </select><i class="lnil lnil-chevron-down"></i>
                                     </div>
                                 </div>
@@ -41,8 +48,9 @@
                 </form>
                 <h1 class="ps-page__heading">Agents List</h1>
                 <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="agents.html">Agents</a></li>
+                    <!-- <li><a :to="{name:'HomePage' }">Home</a></li> -->
+                    <li><a href="/">Home</a></li>
+                    <li><a :to="{name:'Agents.index' }">Agents</a></li>
                     <li>Agent Listing</li>
                 </ul>
             </div>
@@ -94,17 +102,30 @@
 <script>
 import FooterPage from '../FooterPage.vue';
 import useAgents from '../../composables/agents.js';
+import useCategories from '../../composables/categories.js'
 import { Bootstrap4Pagination } from 'laravel-vue-pagination';
-import { onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 
 
 export default{ 
         setup () {
+
+            const search_agent = ref('')
+            const search_category = ref('')
+
             const { agents, getAgents } = useAgents()
+            const {categories , getCategories} = useCategories()
     
-            onMounted(getAgents)
+            onMounted( () => {
+                getAgents()
+                getCategories() 
+            })
+
+            watch (search_category, (current, previous) => {
+                getAgents(1, current )
+            })
     
-            return {agents, getAgents}
+            return {agents, getAgents, categories,search_category, search_agent}
         },
 
         components: {

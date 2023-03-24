@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AgentController;
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\LocationController;
 use App\Http\Controllers\Api\PropertyTypeController;
 
@@ -24,3 +25,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('locations', [LocationController::class, 'index']);
 Route::get('property_types', [PropertyTypeController::class, 'index']);
 Route::get('agents', [AgentController::class, 'index']);
+Route::get('categories', [CategoryController::class, 'index']);

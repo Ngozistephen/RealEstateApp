@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Agent extends Model
 {
@@ -24,6 +25,7 @@ class Agent extends Model
         'facebook',
         'linkedin',
         'instagram',
+        'category_id'
 
     ];
 
@@ -46,5 +48,11 @@ class Agent extends Model
     public function getFullNameAttribute()
     {
         return "{$this->first_name} {$this->last_name}";
+    }
+
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }
