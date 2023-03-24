@@ -27,6 +27,7 @@ class AgentFactory extends Factory
             'birthday'=>new Carbon($this->faker->dateTime),
             'gender' => $this->faker->randomElement(['male', 'female']),
             'phone_number' =>  $this->faker->phoneNumber(),
+            'agent_company' => $this->faker->company(),
             'address' =>  $this->faker->address(),
             'twitter' =>  $this->faker->url(),
             'facebook' =>  $this->faker->url(),

@@ -17,6 +17,7 @@ class Agent extends Model
         'description',
         'gender',
         'address',
+        'agent_company',
         'status',
         'phone_number',
         'twitter',
@@ -32,12 +33,18 @@ class Agent extends Model
 
 
 
-    //   public function scopeFilterStatus($query, $filter)
-    // {
-    //     if (in_array($filter, self::STATUS)) {
-    //         return $query->where('status', $filter);
-    //     }
+      public function scopeFilterStatus($query, $filter)
+    {
+        if (in_array($filter, self::STATUS)) {
+            return $query->where('status', $filter);
+        }
 
-    //     return $query;
-    // }
+        return $query;
+    }
+
+  //  get is Accessor -  when we fetch data from database
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
 }

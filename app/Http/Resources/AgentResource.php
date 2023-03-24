@@ -16,12 +16,12 @@ class AgentResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'first_name' => $this->first_name,
-            'last_name' => $this->last_name,
+            'full_name'=> $this->full_name,
             'birthday'=> $this->birthday,
             'email' => $this->email,
             'description' => substr( $this-> description, 0, 50) . '...',
             'gender' =>$this->gender,
+            'agent_company'=> $this->agent_company,
             'address' =>$this->address,
             'status' =>$this->status,
             'phone_number' =>$this->phone_number,

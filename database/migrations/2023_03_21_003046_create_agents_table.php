@@ -22,6 +22,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->longText('description');
             $table->string('gender');
+            $table->string('agent_company');
             $table->string('address');
             $table->string('status')->default('in progress');
             $table->string('phone_number')->nullable();
