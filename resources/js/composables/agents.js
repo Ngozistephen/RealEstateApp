@@ -6,10 +6,10 @@ export default function useAgents(){
 
     const agents = ref({})
 
-    const getAgents = async () => {
-        axios.get('/api/agents')
+    const getAgents = async (page = 1) => {
+        axios.get('/api/agents?page=' + page)
             .then(response => {
-                agents.value = response.data.data;     
+                agents.value = response.data;     
             })
     }
 

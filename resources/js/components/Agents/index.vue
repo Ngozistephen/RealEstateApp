@@ -55,7 +55,7 @@
                     </div>
                     <div class="ps-section__content">
                         <div  class="ps-section__items ps-grid" data-columns="5">
-                            <div v-for="agent in agents" class="ps-grid__column">
+                            <div v-for="agent in agents.data" class="ps-grid__column">
                                 <div class="ps-block--agent">
                                     <div class="ps-block__thumbnail">
                                         <div class="ps-block__image"><img src="img/agents/1.jpg" alt="" /></div><a class="ps-block__overlay" href="agent-detail.html"><span>TR</span></a>
@@ -76,14 +76,7 @@
                         </div>
                     </div>
                     <div class="ps-section__bottom">
-                        <ul class="ps-pagination">
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#"><i class="lnil lnil-chevron-right"></i></a></li>
-                        </ul>
+                        <Bootstrap4Pagination class="ps-pagination" :data="agents"  @pagination-change-page="getAgents" />
                     </div>
                 </div>
             </div>
@@ -101,6 +94,7 @@
 <script>
 import FooterPage from '../FooterPage.vue';
 import useAgents from '../../composables/agents.js';
+import { Bootstrap4Pagination } from 'laravel-vue-pagination';
 import { onMounted } from 'vue';
 
 
@@ -110,11 +104,13 @@ export default{
     
             onMounted(getAgents)
     
-            return {agents}
+            return {agents, getAgents}
         },
 
         components: {
-            FooterPage,    
+            FooterPage, 
+            Bootstrap4Pagination
+
 
         }
      }

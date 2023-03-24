@@ -16,7 +16,7 @@ class AgentController extends Controller
      */
     public function index()
     {
-        return AgentResource::collection(Agent::all());
+        return AgentResource::collection(Agent::paginate(10));
     }
 
     /**
