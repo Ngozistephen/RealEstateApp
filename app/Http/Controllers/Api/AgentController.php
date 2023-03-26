@@ -20,6 +20,9 @@ class AgentController extends Controller
             ->when(request('search_category'), function($query) {
                 $query->where('category_id', request('search_category'));
             })
+            ->when(request('search_agent'), function($query) {
+                $query->where('full_name', 'like', '%'.request('search_agent'). '%');
+            })
             ->paginate(10);
 
         return AgentResource::collection($agents);

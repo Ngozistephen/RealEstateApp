@@ -55,4 +55,18 @@ class Agent extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    function scopeFullName($query, $name)
+    {
+        // Split each Name by Spaces
+        $names = explode(" ", $name);
+
+        // Search each Name Field for any specified Name
+        return Agent::where(function($query) use ($names) {
+            $query->whereIn('first_name', $names);
+            $query->orWhere(function($query) use ($names) {
+                $query->whereIn('last_name', $names);
+            });
+        });
+    }
 }

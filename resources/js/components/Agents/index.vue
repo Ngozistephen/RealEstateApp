@@ -6,15 +6,10 @@
                     <div class="row">
                         <div class="col-md-5 col-12">
                             <div class="ps-form underline">
-                                <input class="form-control" type="text" placeholder=" " />
+                                <input v-model="search_agent" class="form-control" type="text" placeholder=" " />
                                 <label>Enter agent name...</label>
                             </div>
-                            <!-- <select v-model="search_agent" class="ps-form underline">
-                                <option value="" selected>-- Enter agent name..--</option>
-                                <option v-for="agent in agents" :value="agent.id">
-                                    {{ agent.full_name }}
-                                </option>
-                            </select> -->
+                          
                         </div>
                         <div class="col-md-7">
                             <div class="row">
@@ -37,7 +32,7 @@
                                         </select><i class="lnil lnil-chevron-down"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4" >
                                     <div class="ps-form__submit">
                                         <button class="ps-btn">Search</button>
                                     </div>
@@ -70,6 +65,8 @@
                                     </div>
                                     <div class="ps-block__content"><a class="ps-block__name" href="agent-detail.html">{{agent.full_name }}</a>
                                         <p class="ps-block__position">Company agent at<a href="#">{{ agent.agent_company }}</a></p>
+                                        <p class="ps-block__position">{{ agent.category }}</p>
+                        
                                         <div class="ps-block__meta">
                                             <p><a href="#"> <span class="__cf_email__" data-cfemail="b3c7dcd1d1caf3d5daddd7d6c1dfd2ddd79dd0dcde">[email&#160;protected]</span></a><br/>{{ agent.phone_number }}</p>
                                         </div>
@@ -121,8 +118,19 @@ export default{
                 getCategories() 
             })
 
+            // watch (search_agent, (current, previous) => {
+            //     getAgents(
+            //         1, 
+            //         current,
+            //         search_category.value 
+            //     )
+            // }),
             watch (search_category, (current, previous) => {
-                getAgents(1, current )
+                getAgents(
+                    1, 
+                    current,
+                    search_agent.value 
+                )
             })
     
             return {agents, getAgents, categories,search_category, search_agent}
